@@ -29,13 +29,13 @@ A generic cache implementation with optional TTL support and subscriptions
 **1. Install**
 
 ```bash
-npm install cache-it
+npm i @veekhere/just-cache-it
 ```
 
 **2. Create a cache**
 
 ```typescript
-import { CacheIt } from 'cache-it';
+import { CacheIt } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string>();
 
@@ -92,7 +92,7 @@ Main cache class. Returned values are immutable
 **1. Primitive values**
 
 ```typescript
-import { CacheIt } from 'cache-it';
+import { CacheIt } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string>(); // string cache
 
@@ -104,7 +104,7 @@ cache.get('key'); // ⇨ 'value'
 **2. User defined values**
 
 ```typescript
-import { CacheIt } from 'cache-it';
+import { CacheIt } from '@veekhere/just-cache-it';
 
 class User {
   constructor(public name: string) {}
@@ -124,7 +124,7 @@ cache.get('key')?.unwrapCurrent(); // ⇨ User { name: 'John' }
 **3. Arrays**
 
 ```typescript
-import { CacheIt } from 'cache-it';
+import { CacheIt } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string[]>(); // string[] cache
 
@@ -140,7 +140,7 @@ cache.get('key'); // ⇨ ['value']
 Represents a handler to call when cache is updated
 
 ```typescript
-import { CacheIt } from 'cache-it';
+import { CacheIt } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string>();
 
@@ -156,7 +156,7 @@ const subscription = cache.subscribe(handler);
 Represents a subscription to cache changes
 
 ```typescript
-import { CacheIt } from 'cache-it';
+import { CacheIt } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string>();
 
@@ -170,7 +170,7 @@ const subscription = cache.subscribe(() => {
 Represents a cached value that can be updated and subscribed to
 
 ```typescript
-import { CacheIt, CacheValue } from 'cache-it';
+import { CacheIt, CacheValue } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string>();
 
@@ -194,7 +194,7 @@ cacheValue.subscribe({
 Represents the handlers to call when unwrapping a cache value
 
 ```typescript
-import { CacheIt, CacheValue } from 'cache-it';
+import { CacheIt, CacheValue } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string>();
 
@@ -218,7 +218,7 @@ cacheValue.unwrapCurrent(handlers);
 Represents the handlers to call when cache value changes
 
 ```typescript
-import { CacheValue, CacheValueSubscriptionHandlers } from 'cache-it';
+import { CacheValue, CacheValueSubscriptionHandlers } from '@veekhere/just-cache-it';
 
 const handlers: CacheValueSubscriptionHandlers<string> = {
   next: (value: CacheValue<string>) => {
@@ -239,7 +239,7 @@ cache.subscribe(handlers);
 Represents a subscription to a cache value
 
 ```typescript
-import { CacheIt, CacheValue } from 'cache-it';
+import { CacheIt, CacheValue } from '@veekhere/just-cache-it';
 
 const cache = new CacheIt<string>();
 
@@ -259,7 +259,7 @@ subscription.unsubscribe();
 Utility functions for working with cache entries
 
 ```typescript
-import { CacheItUtils } from 'cache-it';
+import { CacheItUtils } from '@veekhere/just-cache-it';
 
 const keyGenerator = CacheItUtils.addBaseKey('BASE#KEY');
 
@@ -271,7 +271,7 @@ keyGenerator.generateKey('my', 'additional', 'parts'); // ⇨ '$CACHE-IT_BASE#KE
 Represents a value that may or may not be present
 
 ```typescript
-import { Maybe } from 'cache-it';
+import { Maybe } from '@veekhere/just-cache-it';
 
 const maybe: Maybe<string> = getData(); // ⇨ string | undefined
 ```
