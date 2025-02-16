@@ -1,0 +1,35 @@
+name: Npm publish patch
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: Build, bump & publish to npm
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+
+      - run: npm run test
+      - run: npm run build
+
+      - name: Bump version & push
+        run: |
+          git config --global user.name 'Automated publish'
+          git config --global user.email 'veekhere@users.noreply.github.com'
+
+          npm version patch
+
+          git push && git push --tags
+
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
