@@ -1,6 +1,6 @@
 {
-  "name": "just-cache-it",
-  "version": "1.0.1",
+  "name": "@veekhere/just-cache-it",
+  "version": "1.0.0",
   "description": "A generic cache implementation with optional TTL support and subscriptions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
