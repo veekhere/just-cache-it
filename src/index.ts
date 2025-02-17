@@ -3,9 +3,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 /**
- * Cache-It is a generic cache implementation with optional TTL support and subscriptions. It can be used to cache any value, including objects, arrays, and primitives.
+ * Just Cache-It is a generic cache implementation with optional TTL support and subscriptions. It can be used to cache any value, including objects, arrays, and primitives.
  * @template T The type of values stored in the cache
- * @see https://github.com/veekhere/cache-it
+ * @see https://github.com/veekhere/just-cache-it
  * @author veekhere
  * @license MIT
  * @version 1.0.0
